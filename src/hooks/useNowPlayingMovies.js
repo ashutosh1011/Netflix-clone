@@ -17,7 +17,7 @@ const getNowPlayingMovies = async () => {
     API_OPTIONS
   );
   const data = await response.json();
-  console.log(data);
+ 
   dispatch(setMovies(data.results));
 };
 

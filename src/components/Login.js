@@ -47,7 +47,7 @@ const Login = () => {
                   email: email,
                 })
               );
-              console.log(displayName);
+              
             })
             .catch((error) => {
               setMessageError(error.message);
