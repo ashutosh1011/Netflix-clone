@@ -10,7 +10,7 @@ export const VideoBackground = ({ movieId }) => {
 
 
   const trailer = useSelector(store=>store.movie?.trailer);
-
+  
   useMovieTrailer(movieId);
 
   

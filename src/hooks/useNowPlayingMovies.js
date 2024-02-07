@@ -3,36 +3,22 @@ import { API_OPTIONS } from "../utils/Common";
 import { setMovies } from "../utils/movieSlice";
 import { useDispatch } from "react-redux";
 
-const useNowPlayingMovies = ()=>{
+const useNowPlayingMovies = () => {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
+  useEffect(() => {
+    getNowPlayingMovies();
+  }, []);
 
-useEffect(() => {
-  getNowPlayingMovies();
-}, []);
+  const getNowPlayingMovies = async () => {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?page=1",
+      API_OPTIONS
+    );
+    const data = await response.json();
 
-const getNowPlayingMovies = async () => {
-  const response = await fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?page=1",
-    API_OPTIONS
-  );
-  const data = await response.json();
-  
- 
-  dispatch(setMovies(data.results));
+    dispatch(setMovies(data.results));
+  };
 };
 
-
-
-
-
-
-
-
-
-
-    
-}
-
-
-export default  useNowPlayingMovies;
+export default useNowPlayingMovies;
