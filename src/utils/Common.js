@@ -23,3 +23,5 @@ export const SupportedLanguage = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const GPT_KEY = process.env.REACT_APP_GPT_KEY;

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUpcomingMovie } from "../utils/movieSlice";
 import { useEffect } from "react";
 import { API_OPTIONS } from "../utils/Common";
@@ -6,8 +6,10 @@ import { API_OPTIONS } from "../utils/Common";
 const useUpcomingMovie = () => {
   const dispatch = useDispatch();
 
+  const upcomingMovie = useSelector((store) => store.movie.upcoming);
+
   useEffect(() => {
-    getPopularMovies();
+    !upcomingMovie && getPopularMovies();  //memoization(prevent api call again again)
   }, []);
 
   const getPopularMovies = async () => {
