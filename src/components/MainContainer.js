@@ -18,7 +18,7 @@ const MainContainer = () => {
     
 
   return (
-    <div>
+    <div className='pt-[30%] bg-gradient-to-t from-black md:pt-0'>
       <VideoTitle title={original_title} description={overview} />
       <VideoBackground movieId={id} />
     </div>

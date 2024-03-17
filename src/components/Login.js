@@ -48,7 +48,6 @@ const Login = () => {
                   email: email,
                 })
               );
-              
             })
             .catch((error) => {
               setMessageError(error.message);
@@ -60,7 +59,11 @@ const Login = () => {
           setMessageError(errorCode + "-" + errorMessage);
         });
     } else {
-      signInWithEmailAndPassword(auth, email.current?.value, password.current?.value)
+      signInWithEmailAndPassword(
+        auth,
+        email.current?.value,
+        password.current?.value
+      )
         .then((userCredential) => {
           const user = userCredential.user;
         })
@@ -79,15 +82,16 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
+          className="h-screen object-cover md:w-screen"
           src={BG_IMG}
           alt="background"
         ></img>
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" w-3/12 p-12 bg-black absolute my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-3/12 p-12 bg-black absolute my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
-        <label className="block font-bold text-3xl py-4">
+        <label className="block font-bold text-lg md:text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </label>
         {!isSignInForm && (
