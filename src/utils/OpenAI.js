@@ -2,7 +2,7 @@ import OpenAI from "openai";
 import { GPT_KEY } from "./Common";
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "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",
   dangerouslyAllowBrowser: true,
 });
 
